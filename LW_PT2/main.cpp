@@ -70,7 +70,7 @@ void douDigfunc(void)
 			double inc_step;
 			cout << "Enter increment step;" << endl;
 			cin >> inc_step;
-			ob1.setInc(inc_step);
+			ob1.setInc(&inc_step);
 			cout << endl;
 			break;
 		case 2:
@@ -78,7 +78,7 @@ void douDigfunc(void)
 			double dec_step;
 			cout << "Enter decrement step;" << endl;
 			cin >> dec_step;
-			ob1.setDec(dec_step);
+			ob1.setDec(&dec_step);
 			cout << endl;
 			break;
 		case 3:
@@ -135,24 +135,113 @@ void douDigfunc(void)
 }
 void stackfunc(void)
 {
-	stack ob;
-	ob.show();
+	stack ob1;
+	cout << "ob1" << endl;
+	ob1.show();
 	cout << endl;
-	stack ob2 = ob;
-	for (int i = 0; i < ob.getsize();i++)
+	stack ob2 = ob1;
+	for (int i = 0; i < ob1.getsize();i++)
 	{
 		ob2.pop();
 	}
-	for (int i = 0; i < ob.getsize();i++)
+	for (int i = 0; i < ob1.getsize();i++)
 	{
 		ob2.push();
 	}
+	cout << "ob2" << endl;
 	ob2.show();
 	cout << endl;
-	ob = ob * ob2;
-	ob.show();
-	cout << endl;
-	ob.pop();
-	ob.show();
-	cout << endl;
+	stack ob3;
+	int sw;
+	cout << "Enter stack object mode: 0-exit, 1 - + and +=, 2 - - and -=, 3 - * and *=, 4 - / and /=, 5 - =, 6 - push() ob1, 7- pop() ob1, 8 - show the stacks;" << endl;
+	cin >> sw;
+	while (sw)
+	{
+		switch (sw)
+		{
+		case 1:
+			cout << endl;
+			cout << "ob3 = ob1 + ob2; ob3:" << endl;
+			ob3 = ob1 + ob2;
+			ob3.show();
+			cout << endl;
+			cout << "ob1 += ob2; ob1:" << endl;
+			ob1 += ob2;
+			ob1.show();
+			cout << endl;
+			break;
+		case 2:
+			cout << endl;
+			cout << "ob3 = ob1 - ob2; ob3:" << endl;
+			ob3 = ob1 - ob2;
+			ob3.show();
+			cout << endl;
+			cout << "ob1 -= ob2; ob1:" << endl;
+			ob1 -= ob2;
+			ob1.show();
+			cout << endl;
+			break;
+		case 3:
+			cout << endl;
+			cout << "ob3 = ob1 * ob2; ob3:" << endl;
+			ob3 = ob1 * ob2;
+			ob3.show();
+			cout << endl;
+			cout << "ob1 *= ob2; ob1:" << endl;
+			ob1 *= ob2;
+			ob1.show();
+			cout << endl;
+			break;
+		case 4:
+			cout << endl;
+			cout << "ob3 = ob1 / ob2; ob3:" << endl;
+			ob3 = ob1 / ob2;
+			ob3.show();
+			cout << endl;
+			cout << "ob1 /= ob2; ob1:" << endl;
+			ob1 /= ob2;
+			ob1.show();
+			cout << endl;
+			break;
+		case 5:
+			cout << endl;
+			cout << "ob2 = ob1; ob2:" << endl;
+			ob2 = ob1;
+			ob2.show();
+			cout << endl;
+			break;
+		case 6:
+			cout << endl;
+			cout << "push() ob1; ob1:" << endl;
+			ob1.push();
+			ob1.show();
+			cout << endl;
+			break;
+		case 7:
+			cout << endl;
+			cout << "pop() ob1; ob1:" << endl;
+			ob1.pop();
+			ob1.show();
+			cout << endl;
+			break;
+		case 8:
+			cout << endl;
+			cout << "Size of stack 1: " << ob1.getsize() << ", stack 2: " << ob2.getsize() << ", stack 3: " << ob3.getsize() << ';' << endl;
+			cout << endl;
+			cout << "Stack1:"<< endl;
+			ob1.show();
+			cout << endl;
+			cout << "Stack2:" << endl;
+			ob2.show();
+			cout << endl;
+			cout << "Stack3:" << endl;
+			ob3.show();
+			cout << endl;
+			break;
+		default:
+			cout << "Uncorrect mode. Try again:" << endl;
+		}
+		cout << "Enter stack object mode: 0-exit, 1 - + and +=, 2 - - and -=, 3 - * and *=, 4 - / and /=, 5 - =, 6 - push() ob1, 7- pop() ob1, 8 - show the stacks;" << endl;
+		cin >> sw;
+	}
 }

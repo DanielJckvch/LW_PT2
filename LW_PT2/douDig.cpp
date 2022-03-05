@@ -8,26 +8,28 @@ douDig::douDig(double init_val)
 	inc = 1.0;
 	dec = 1.0;
 }
+
 douDig::~douDig(void){}
-douDig douDig::operator++(void)
+
+void douDig::setInc(double* new_inc)
 {
-	this->val = this->val + this->inc;
-	return *this;
+	inc = *new_inc;
 }
 
-void douDig::setInc(double new_inc)
+void douDig::setDec(double* new_dec)
 {
-	inc = new_inc;
-}
-
-void douDig::setDec(double new_dec)
-{
-	dec = new_dec;
+	dec = *new_dec;
 }
 
 void douDig::show(void)
 {
 	cout << "Value now: " << this->val << endl;
+}
+
+douDig douDig::operator++(void)
+{
+	this->val = this->val + this->inc;
+	return *this;
 }
 
 douDig operator++(douDig& ob, int notused)

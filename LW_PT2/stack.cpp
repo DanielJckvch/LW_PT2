@@ -94,6 +94,33 @@ int stack::getsize(void)
 	return size;
 }
 
+stack& stack::operator=(stack r)
+{
+	elem* temp1 = top;
+	while (size)
+	{
+		temp1 = top;
+		top = top->down;
+		delete temp1;
+		size--;
+	}
+	top = new elem;
+	elem* temp2 = r.top;
+	temp1 = top;
+	while (temp2->down)
+	{
+		temp1->val = temp2->val;
+		temp1->down = new elem;
+		temp1 = temp1->down;
+		temp2 = temp2->down;
+		this->size++;
+	}
+	temp1->val = temp2->val;
+	temp1->down = 0;
+	size++;
+	return *this;
+}
+
 stack stack::operator+(stack r)
 {
 	if (!this->size && !r.size)
@@ -141,32 +168,6 @@ stack stack::operator-(stack& r)
 		res_ptr = res_ptr->down;
 	}
 	return res;
-}
-stack& stack::operator=(stack r)
-{
-	elem* temp1 = top;
-	while (size)
-	{
-		temp1 = top;
-		top = top->down;
-		delete temp1;
-		size--;
-	}
-	top = new elem;
-	elem* temp2 = r.top;
-	temp1 = top;
-	while (temp2->down)
-	{
-		temp1->val = temp2->val;
-		temp1->down = new elem;
-		temp1 = temp1->down;
-		temp2 = temp2->down;
-		this->size++;
-	}
-	temp1->val = temp2->val;
-	temp1->down = 0;
-	size++;
-	return *this;
 }
 
 stack stack::operator*(stack r)
@@ -218,17 +219,17 @@ stack stack::operator/(stack& r)
 	return res;
 }
 
-stack stack::operator+=(stack r)
+stack* stack::operator+=(stack r)
 {
 	if (!this->size && !r.size)
 	{
 		cout << "The stacks have null sizes;" << endl;
-		return *this;
+		return this;
 	}
 	if (this->size != r.size)
 	{
 		cout << "The stacks have different sizes;" << endl;
-		return(this->size > r.size) ? (*this) : r;
+		return(this->size > r.size) ? (this) : (&r);
 	}
 	int i;
 	elem* r_ptr = r.top;
@@ -239,7 +240,7 @@ stack stack::operator+=(stack r)
 		r_ptr = r_ptr->down;
 		this_ptr = this_ptr->down;
 	}
-	return *this;
+	return this;
 }
 
 stack stack::operator-=(stack& r)
@@ -266,17 +267,17 @@ stack stack::operator-=(stack& r)
 	return *this;
 }
 
-stack stack::operator*=(stack r)
+stack* stack::operator*=(stack r)
 {
 	if (!this->size && !r.size)
 	{
 		cout << "The stacks have null sizes;" << endl;
-		return *this;
+		return this;
 	}
 	if (this->size != r.size)
 	{
 		cout << "The stacks have different sizes;" << endl;
-		return(this->size > r.size) ? (*this) : r;
+		return(this->size > r.size) ? this : (&r);
 	}
 	int i;
 	elem* r_ptr = r.top;
@@ -287,7 +288,7 @@ stack stack::operator*=(stack r)
 		r_ptr = r_ptr->down;
 		this_ptr = this_ptr->down;
 	}
-	return *this;
+	return this;
 }
 
 stack stack::operator/=(stack& r)

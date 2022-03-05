@@ -19,13 +19,13 @@ public:
 	void push(void);
 	void pop(void);
 	int getsize(void);
+	stack& operator=(stack r);
 	stack operator+(stack r);
 	stack operator-(stack& r);
-	stack& operator=(stack r);
 	stack operator*(stack r);
 	stack operator/(stack& r);
-	stack operator+=(stack r);
+	stack* operator+=(stack r);
 	stack operator-=(stack& r);
-	stack operator*=(stack r);
+	stack* operator*=(stack r);
 	stack operator/=(stack& r);
 };

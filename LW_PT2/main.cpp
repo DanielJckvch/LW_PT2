@@ -135,5 +135,24 @@ void douDigfunc(void)
 }
 void stackfunc(void)
 {
-	
+	stack ob;
+	ob.show();
+	cout << endl;
+	stack ob2 = ob;
+	for (int i = 0; i < ob.getsize();i++)
+	{
+		ob2.pop();
+	}
+	for (int i = 0; i < ob.getsize();i++)
+	{
+		ob2.push();
+	}
+	ob2.show();
+	cout << endl;
+	ob = ob * ob2;
+	ob.show();
+	cout << endl;
+	ob.pop();
+	ob.show();
+	cout << endl;
 }

@@ -153,7 +153,7 @@ void stackfunc(void)
 	cout << endl;
 	stack ob3;
 	int sw;
-	cout << "Enter stack object mode: 0-exit, 1 - + and +=, 2 - - and -=, 3 - * and *=, 4 - / and /=, 5 - =, 6 - push() ob1, 7- pop() ob1, 8 - show the stacks;" << endl;
+	cout << "Enter stack object mode: 0: exit, 1: +, 2: +=, 3: -, 4: -=, 5: *, 6: *=, 7: /, 8: /=, 9: =, 10: push() ob1, 11: pop() ob1, 12: show the stacks;" << endl;
 	cin >> sw;
 	while (sw)
 	{
@@ -165,66 +165,78 @@ void stackfunc(void)
 			ob3 = ob1 + ob2;
 			ob3.show();
 			cout << endl;
+			break;
+		case 2:
+			cout << endl;
 			cout << "ob1 += ob2; ob1:" << endl;
 			ob1 += ob2;
 			ob1.show();
 			cout << endl;
 			break;
-		case 2:
+		case 3:
 			cout << endl;
 			cout << "ob3 = ob1 - ob2; ob3:" << endl;
 			ob3 = ob1 - ob2;
 			ob3.show();
+			cout << endl;
+			break;
+		case 4:
 			cout << endl;
 			cout << "ob1 -= ob2; ob1:" << endl;
 			ob1 -= ob2;
 			ob1.show();
 			cout << endl;
 			break;
-		case 3:
+		case 5:
 			cout << endl;
 			cout << "ob3 = ob1 * ob2; ob3:" << endl;
 			ob3 = ob1 * ob2;
 			ob3.show();
+			cout << endl;
+			break;
+		case 6:
 			cout << endl;
 			cout << "ob1 *= ob2; ob1:" << endl;
 			ob1 *= ob2;
 			ob1.show();
 			cout << endl;
 			break;
-		case 4:
+		case 7:
 			cout << endl;
 			cout << "ob3 = ob1 / ob2; ob3:" << endl;
 			ob3 = ob1 / ob2;
 			ob3.show();
+			cout << endl;
+			break;
+		case 8:
 			cout << endl;
 			cout << "ob1 /= ob2; ob1:" << endl;
 			ob1 /= ob2;
 			ob1.show();
 			cout << endl;
 			break;
-		case 5:
+		case 9:
 			cout << endl;
 			cout << "ob2 = ob1; ob2:" << endl;
 			ob2 = ob1;
 			ob2.show();
 			cout << endl;
 			break;
-		case 6:
+		case 10:
 			cout << endl;
 			cout << "push() ob1; ob1:" << endl;
 			ob1.push();
 			ob1.show();
 			cout << endl;
 			break;
-		case 7:
+		case 11:
 			cout << endl;
 			cout << "pop() ob1; ob1:" << endl;
 			ob1.pop();
 			ob1.show();
 			cout << endl;
 			break;
-		case 8:
+		case 12:
 			cout << endl;
 			cout << "Size of stack 1: " << ob1.getsize() << ", stack 2: " << ob2.getsize() << ", stack 3: " << ob3.getsize() << ';' << endl;
 			cout << endl;
@@ -241,7 +253,7 @@ void stackfunc(void)
 		default:
 			cout << "Uncorrect mode. Try again:" << endl;
 		}
-		cout << "Enter stack object mode: 0-exit, 1 - + and +=, 2 - - and -=, 3 - * and *=, 4 - / and /=, 5 - =, 6 - push() ob1, 7- pop() ob1, 8 - show the stacks;" << endl;
+		cout << "Enter stack object mode: 0: exit, 1: +, 2: +=, 3: -, 4: -=, 5: *, 6: *=, 7: /, 8: /=, 9: =, 10: push() ob1, 11: pop() ob1, 12: show the stacks;" << endl;
 		cin >> sw;
 	}
 }
